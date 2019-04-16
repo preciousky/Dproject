@@ -1,0 +1,51 @@
+#outline {
+    margin: 0 auto;
+    height:948px;
+    width:1100px;
+}
+
+#top_bar {
+    height: 80px;
+    background: #ffffff;
+}
+
+nz-header {
+    height: 48px;
+    color:#ffffff;
+    padding-right: 0px;
+}
+
+nz-footer {
+    height: 100px;
+
+    background: #000f1d;
+
+    color:#ffffff;
+    font-size: medium;
+
+    text-align: center;
+    vertical-align: middle;
+    padding: 35px 60px;
+}
+
+.topList{
+    background: #001529;
+    color: white;
+    font-size: larger;
+}
+
+.topList li {
+    border-bottom: 2px solid #001529;
+}
+
+.topList li:hover {
+    border-bottom: 2px solid #78c9f8;
+}
+
+.topIcon {
+    padding: 0px;
+}
+
+.topListA {
+    padding-left: 10px;
+}

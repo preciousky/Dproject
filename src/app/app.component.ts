@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Dproject';
+
+  logInState: boolean;
+  
+  ngOnInit(){
+    this.logInState=false;
+  }
 }

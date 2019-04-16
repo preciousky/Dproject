@@ -1,0 +1,20 @@
+[nz-form] {
+    max-width: 600px;
+}
+
+#logOutline {
+    height: 420px;
+    width: 400px;
+    float: left;
+    padding: 60px 37px;
+    background: #000f1d;
+    border-left: rgb(0, 15, 29) solid 15px;
+}
+
+.ant-form-item-required {
+ color: white;
+}
+
+.labels {
+    color: white;
+}
