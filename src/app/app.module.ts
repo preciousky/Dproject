@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { MyCardComponent } from './my-card/my-card.component';
 
 registerLocaleData(en);
 
@@ -26,7 +27,8 @@ registerLocaleData(en);
     LogupComponent,
     MyBusinessComponent,
     NewBusinessComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    MyCardComponent
   ],
   imports: [
     BrowserModule,

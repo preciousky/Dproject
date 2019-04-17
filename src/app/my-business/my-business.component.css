@@ -1,4 +1,29 @@
 ::ng-deep .ant-tabs-nav-wrap {
     background: #001529;
     color: white;
+    width: 150px;
+}
+
+/* 表单用到的css */
+.login-form {
+    max-width: 300px;
+}
+.login-form-forgot {
+float: right;
+}
+.login-form-button {
+width: 100%;
+}
+:host /deep/ .login-form{
+max-width: 500px;
+margin: 50px 200px;
+width: 500px;
+}
+:host /deep/ .login-form-button {
+    height: 40px;
+    font-size: large;
+    margin-top: 35px;
+}
+:host /deep/ .ant-form-item {
+    margin-bottom: 0px
 }
