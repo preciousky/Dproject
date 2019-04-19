@@ -1,3 +1,13 @@
-<p>
-  user-info works!
-</p>
+<div style="float: left; height:720px; width: 150px; background: #001529">
+  <div style="margin:0px 25px">
+    <img style="border-radius: 50%; padding-top: 50px;" src="../../assets/pics/UserInfoIcon.png">
+  </div>
+</div>
+
+<div style="float: left;float: left;margin: 70px 100px;">
+  <nz-list [nzDataSource]="data" nzBordered [nzHeader]="'Header'" [nzFooter]="'Footer'" [nzRenderItem]="item">
+    <ng-template #item let-item>
+      <nz-list-item [nzContent]="item"></nz-list-item>
+    </ng-template>
+  </nz-list>
+</div>

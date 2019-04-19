@@ -1,0 +1,50 @@
+<div style="float: left; height:720px; width: 150px; background: #001529">
+  <div class="sideBarContent">
+    申请贴现
+  </div>
+</div>
+<div style="float: left; height: 720px">
+  <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+    <nz-form-item>
+      <nz-form-label [nzXs]="24" [nzSm]="4">
+        Passengers
+      </nz-form-label>
+      <nz-form-control>
+        <nz-input-group>
+          <input type="text" nz-input formControlName="userName" placeholder="Username" />
+        </nz-input-group>
+        <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">
+          Please input your username!</nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzXs]="24" [nzSm]="4">
+        Passengers
+      </nz-form-label>
+      <nz-form-control>
+        <nz-input-group>
+          <input type="text" nz-input formControlName="userName" placeholder="Username" />
+        </nz-input-group>
+        <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">
+          Please input your username!</nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzXs]="24" [nzSm]="4">
+        Passengers
+      </nz-form-label>
+      <nz-form-control>
+        <nz-input-group>
+          <input type="text" nz-input formControlName="userName" placeholder="Username" />
+        </nz-input-group>
+        <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">
+          Please input your username!</nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
+        <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</div>

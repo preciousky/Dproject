@@ -61,17 +61,17 @@
   </div>
 
   <div class= "buttonDiv" style="margin: 5px 0 0 -5px; width: 110px">
-    <button nz-button nzType="default">申请评级</button>
+    <button nz-button nzType="default" (click)="toReleaseRank()" >申请评级</button>
   </div>
   <div class= "buttonDiv">
-    <button nz-button nzType="default">发起背书</button>
+    <button nz-button nzType="default" (click)="toReleaseEndorse()">发起背书</button>
   </div>
   <div class= "buttonDiv">
-    <button nz-button nzType="default">申请承兑</button>
-    <button *ngIf="flagTest" nz-button nzType="danger">退票追索</button>
+    <button *ngIf="flagTest"nz-button nzType="default">申请承兑</button>
+    <button *ngIf="!flagTest" nz-button nzType="danger" (click)="toReleasePress()">退票追索</button>
   </div>
   <div class= "buttonDiv" style="margin: 5px -5px 0 0px; width: 110px">
-    <button *ngIf="flagTest" nz-button nzType="default">申请贴现</button>
-    <button nz-button nzType="danger">撤回贴现</button>
+    <button *ngIf="!flagTest" nz-button nzType="default" (click)="toReleaseDiscount()">申请贴现</button>
+    <button *ngIf="flagTest"nz-button nzType="danger">撤回贴现</button>
   </div>
 </div>

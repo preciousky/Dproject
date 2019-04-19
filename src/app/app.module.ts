@@ -16,6 +16,11 @@ import { registerLocaleData } from '@angular/common';
 import en from '@angular/common/locales/en';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { MyCardComponent } from './my-card/my-card.component';
+import { ReleaseRankComponent } from './release-rank/release-rank.component';
+import { ReleaseEndorseComponent } from './release-endorse/release-endorse.component';
+import { ReleaseDiscountComponent } from './release-discount/release-discount.component';
+import { ReleasePressComponent } from './release-press/release-press.component';
+import { ReleaseAcceptForHonourComponent } from './release-accept-for-honour/release-accept-for-honour.component';
 
 registerLocaleData(en);
 
@@ -28,7 +33,12 @@ registerLocaleData(en);
     MyBusinessComponent,
     NewBusinessComponent,
     UserInfoComponent,
-    MyCardComponent
+    MyCardComponent,
+    ReleaseRankComponent,
+    ReleaseEndorseComponent,
+    ReleaseDiscountComponent,
+    ReleasePressComponent,
+    ReleaseAcceptForHonourComponent
   ],
   imports: [
     BrowserModule,

@@ -77,8 +77,8 @@ text-align: center;" [nzSelectedIndex]="selectedNum">
         <nz-form-control>
           <nz-input-group>
             <!-- <input type="password" nz-input formControlName="password" placeholder="Password" /> -->
-            <nz-select nz-input formControlName="way" style="width: 120px;" [(ngModel)]="selectedValue" nzAllowClear
-              nzPlaceHolder="Choose">
+            <nz-select nz-input formControlName="password" style="width: 120px;" [(ngModel)]="selectedValue"
+              nzAllowClear nzPlaceHolder="Choose">
               <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
               <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
             </nz-select>
@@ -97,6 +97,35 @@ text-align: center;" [nzSelectedIndex]="selectedNum">
   </nz-tab>
 
   <nz-tab nzTitle="等待支付">
-    等待支付
+    <nz-table #basicTable [nzData]="listOfData" style=" margin: 20px 5px;">
+      <thead>
+        <tr>
+          <th>票据ID</th>
+          <th>票据金额</th>
+          <th>出票日期</th>
+          <th>到期日期</th>
+          <th>承兑日期</th>
+          <th>出票人</th>
+          <th>收款人</th>
+          <th>参与承兑</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable.data">
+          <td>{{ data.name }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>
+            <a>主动承兑</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
   </nz-tab>
 </nz-tabset>

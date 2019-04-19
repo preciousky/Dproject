@@ -1,10 +1,10 @@
-::ng-deep .ant-tabs-nav-wrap {
-    background: #001529;
+.sideBarContent {
     color: white;
-    width: 150px;
+    font-weight: 900;
+    font-size: x-large;
+    margin: 80px 0px 0px 40px;
 }
 
-/* 表单用到的css */
 .login-form {
     max-width: 300px;
 }
@@ -26,9 +26,4 @@ width: 500px;
 }
 :host /deep/ .ant-form-item {
     margin-bottom: 0px
-}
-
-/*表格用到的css*/
-:host /deep/ .ant-table-thead > tr > th, .ant-table-tbody > tr > td {
-    padding: 5px;
 }

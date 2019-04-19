@@ -1,14 +1,130 @@
 <nz-tabset nzTabPosition="left" style="height: 720px"  [nzSelectedIndex]="selectedNum">
   <nz-tab nzTitle="待贴现的票据">
-    待贴现的票据
+    <nz-table #basicTable1 [nzData]="list1OfData" style=" margin: 20px 5px;">
+      <thead>
+        <tr>
+          <th>票据ID</th>
+          <th>票据金额</th>
+          <th>出票日期</th>
+          <th>到期日期</th>
+          <th>承兑日期</th>
+          <th>出票人</th>
+          <th>收款人</th>
+          <th>参与承兑</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable1.data">
+          <td>{{ data.name }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>
+            <a>主动承兑</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
   </nz-tab>
   <nz-tab nzTitle="签收背书票据">
-    签收背书票据
+    <nz-table #basicTable2 [nzData]="list2OfData" style=" margin: 20px 5px;">
+      <thead>
+        <tr>
+          <th>票据ID</th>
+          <th>票据金额</th>
+          <th>出票日期</th>
+          <th>到期日期</th>
+          <th>承兑日期</th>
+          <th>出票人</th>
+          <th>收款人</th>
+          <th>参与承兑</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable2.data">
+          <td>{{ data.name }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>
+            <a>主动承兑</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
   </nz-tab>
   <nz-tab nzTitle="处理承兑申请">
-    处理承兑申请
+    <nz-table #basicTable3 [nzData]="list3OfData" style=" margin: 20px 5px;">
+      <thead>
+        <tr>
+          <th>票据ID</th>
+          <th>票据金额</th>
+          <th>出票日期</th>
+          <th>到期日期</th>
+          <th>承兑日期</th>
+          <th>出票人</th>
+          <th>收款人</th>
+          <th>参与承兑</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable3.data">
+          <td>{{ data.name }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>
+            <a [routerLink]="['/toReleaseAcceptForHonour', data.name]">申请参承</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
   </nz-tab>
   <nz-tab nzTitle="处理参与承兑">
-    处理参与承兑
+    <nz-table #basicTable4 [nzData]="list4OfData" style=" margin: 20px 5px;">
+      <thead>
+        <tr>
+          <th>票据ID</th>
+          <th>票据金额</th>
+          <th>出票日期</th>
+          <th>到期日期</th>
+          <th>承兑日期</th>
+          <th>出票人</th>
+          <th>收款人</th>
+          <th>参与承兑</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of basicTable4.data">
+          <td>{{ data.name }}</td>
+          <td>{{ data.age }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>{{ data.address }}</td>
+          <td>
+            <a>主动承兑</a>
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
   </nz-tab>
 </nz-tabset>

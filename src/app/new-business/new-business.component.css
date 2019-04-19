@@ -3,3 +3,8 @@
     color: white;
     width: 150px;
 }
+
+/*表格用到的css*/
+:host /deep/ .ant-table-thead > tr > th, .ant-table-tbody > tr > td {
+    padding: 5px;
+}
