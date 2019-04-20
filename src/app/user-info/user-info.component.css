@@ -1,3 +1,24 @@
 ::ng-deep .ant-list {
     width: 700px;
 }
+
+table {
+    
+    font-size: large;
+    font-weight: 900;
+}
+
+tr {
+    height: 60px;
+    border-bottom: #cacaca solid 1px;
+}
+
+td {
+    min-width: 350px;
+    text-align: center;
+}
+
+.firstCol {
+    font-size: larger;
+    color: #cacaca;
+}

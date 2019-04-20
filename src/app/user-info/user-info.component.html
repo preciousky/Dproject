@@ -3,11 +3,45 @@
     <img style="border-radius: 50%; padding-top: 50px;" src="../../assets/pics/UserInfoIcon.png">
   </div>
 </div>
-
 <div style="float: left;float: left;margin: 70px 100px;">
-  <nz-list [nzDataSource]="data" nzBordered [nzHeader]="'Header'" [nzFooter]="'Footer'" [nzRenderItem]="item">
-    <ng-template #item let-item>
-      <nz-list-item [nzContent]="item"></nz-list-item>
-    </ng-template>
-  </nz-list>
+  <table>
+    <tbody> 
+      <tr>
+        <td class="firstCol">用户名称</td>
+        <td>{{userInfo.name}}</td>
+      </tr>
+      <tr>
+        <td class="firstCol">用户ID</td>
+        <td>{{userInfo.id}}</td>
+      </tr>
+      <tr>
+        <td class="firstCol">注册日期</td>
+        <td>{{userInfo.logup_date}}</td>
+      </tr>
+      <tr>
+        <td class="firstCol">票据总价值</td>
+        <td>{{userInfo.total_value}}</td>
+      </tr>
+      <tr>
+        <td class="firstCol">用户等级</td>
+        <td>{{userInfo.rank}}</td>
+      </tr>
+      <tr>
+        <td class="firstCol">账户余额</td>
+        <td>{{userInfo.account}}</td>
+      </tr>
+      <tr>
+        <td class="firstCol">联系电话</td>
+        <td>{{userInfo.tel}}</td>
+      </tr>
+      <tr>
+        <td class="firstCol">电子邮箱</td>
+        <td>{{userInfo.email}}</td>
+      </tr>
+      <tr>
+        <td class="firstCol">联系地址</td>
+        <td>{{userInfo.address}}</td>
+      </tr>
+    </tbody>
+  </table>
 </div>
