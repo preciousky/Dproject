@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../service/http.service';
+import { ActivatedRoute } from '@angular/router';
 
 export interface UserInfo {
   name?: string;
@@ -11,7 +12,7 @@ export interface UserInfo {
   tel?: string;
   email?: string;
   address?: string;
-} 
+}
 
 @Component({
   selector: 'app-user-info',
@@ -19,19 +20,26 @@ export interface UserInfo {
   styleUrls: ['./user-info.component.css']
 })
 export class UserInfoComponent implements OnInit {
-  //userInfo: UserInfo;
+  userId;
   userInfo;
 
-  constructor(private httpService: HttpService) {
+  constructor(private httpService: HttpService, private route: ActivatedRoute) {
     this.userInfo = {};
   }
-
   ngOnInit() {
-    this.httpService.getData('user/getMyInfo')
+    this.userId = this.route.snapshot.paramMap.get('userId');
+    var body = JSON.stringify({
+      "userId": this.userId,
+      "userName": "testName"
+    });
+    this.httpService.postData('user/getMyInfo', body)
       .subscribe(data => {
         this.userInfo = data;
-        console.log(this.userInfo);
-      });
+      },
+        error => {
+          console.log(error);
+        }
+      );
   }
 
 }

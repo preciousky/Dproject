@@ -31,7 +31,7 @@ const routes: Routes = [
     component: LogupComponent
   },
   {
-    path: 'userInfo',
+    path: 'userInfo/:userId',
     component: UserInfoComponent
   },
   {

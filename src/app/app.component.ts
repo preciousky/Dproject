@@ -7,10 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Dproject';
-
+  userId = 'from HomePage userId';
   logInState: boolean;
-  
-  ngOnInit(){
-    this.logInState=false;
+  ngOnInit() {
+    this.logInState = false;
   }
 }

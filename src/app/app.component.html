@@ -17,7 +17,7 @@
         <div style="float:right" *ngIf="!logInState">
           <ul class="topList" nz-menu [nzMode]="'horizontal'">
             <li nz-menu-item class="topIcon">
-              <a class="topListA" style="color: white;" routerLink="/userInfo">
+              <a class="topListA" style="color: white;" [routerLink]="['/userInfo', userId]">
                 <i nz-icon nzType="user" nzTheme="outline" style="font-size: large;"></i>
               </a>
             </li>

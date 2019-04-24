@@ -1,22 +1,27 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class HttpService {
-
-  /* serverIP='111.111.111.111'; */
-
+  serverIP='http://127.0.0.1:8080/';
   constructor(private http: HttpClient) { }
+  
+  postData(url: string, body: any){
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':'text/plain'
+      })
+    };
+    var response = this.http.post(this.URL(url), body, httpOptions);
 
-  getData(url: string){
-    return this.http.get(this.formatUrl(url));
+    return response;
   }
 
-  formatUrl(url: string){
-    return 'assets/mock/'+url+'.json';
-    /* return this.serverIP+url; */
+  URL(url: string){
+    //return 'assets/mock/'+url+'.json';
+    return this.serverIP+url;
   }
 }
