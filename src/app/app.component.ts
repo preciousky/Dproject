@@ -6,10 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Dproject';
-  userId = 'from HomePage userId';
+  title = 'DLUTProject';
+  userId: string;
   logInState: boolean;
   ngOnInit() {
     this.logInState = false;
+    this.userId = 'testUserId';
+  }
+
+  getRoleCode(roleCode: string){
+    console.log(roleCode);
   }
 }

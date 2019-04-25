@@ -35,6 +35,9 @@ export class UserInfoComponent implements OnInit {
     this.httpService.postData('user/getMyInfo', body)
       .subscribe(data => {
         this.userInfo = data;
+        console.log('>>>>>>>>>>>> data have been injected >>>>>>>>>>>>>>>>>>>');
+        console.log('this.userInfo >>>>>');
+        console.log(this.userInfo);
       },
         error => {
           console.log(error);

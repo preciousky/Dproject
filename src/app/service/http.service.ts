@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { antIconConsolePrefix } from '@ant-design/icons-angular';
 
 @Injectable({
   providedIn: 'root'
@@ -10,18 +11,21 @@ export class HttpService {
   constructor(private http: HttpClient) { }
   
   postData(url: string, body: any){
+    console.log('===============Link Start=====================');
+    console.log('==============Data emitting===================');
+    console.log(body?body:'No data emitting!');
+    console.log('==============================================');
+    console.log('=========Data response from server============');
+
+    return this.http.get('assets/mock/'+url+'.json');
+
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':'text/plain'
       })
     };
-    var response = this.http.post(this.URL(url), body, httpOptions);
+    var response = this.http.post(this.serverIP+url, body, httpOptions);
 
     return response;
-  }
-
-  URL(url: string){
-    //return 'assets/mock/'+url+'.json';
-    return this.serverIP+url;
   }
 }
