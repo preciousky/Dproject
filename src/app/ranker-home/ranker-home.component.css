@@ -1,0 +1,17 @@
+#Outline {
+    height: 300px;
+    width: 1100px;
+    padding: 25px 0px;
+    background: #000f1d;
+}
+
+.subOutline {
+    float: left;
+    width: 330px;
+    color: white;
+    margin: 0px 14px;
+}
+
+.selections {
+    margin: 0px 10px;
+}

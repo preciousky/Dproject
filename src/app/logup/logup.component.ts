@@ -31,10 +31,6 @@ export class LogupComponent implements OnInit {
     return {};
   };
 
-  getCaptcha(e: MouseEvent): void {
-    e.preventDefault();
-  }
-
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {

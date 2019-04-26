@@ -1,0 +1,30 @@
+#logOutline {
+    height: 300px;
+    width: 1100px;
+    padding: 45px 0px;
+    background: #000f1d;
+    border-left: rgb(0, 15, 29) solid 15px;
+}
+
+.subOutline{
+    float: left;
+    width: 330px;
+    color: white;
+    margin: 0px 14px;
+}
+p {
+    font-size: large;
+    font-weight: 900;
+}
+
+.pDiv{
+    text-align: center;
+}
+
+:host /deep/ .ant-select-selection{
+    border-radius: 0px;
+}
+
+:host /deep/ .ant-btn-primary {
+    width: 330px;
+}

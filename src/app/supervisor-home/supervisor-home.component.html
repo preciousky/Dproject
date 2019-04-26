@@ -1,0 +1,97 @@
+<img style="height: 420px; width:1100px" src="../../assets/pics/otherMainPage.png">
+<div id="logOutline">
+  <div class='subOutline'>
+    <div class='pDiv'>
+      <p>调取票据变更记录</p>
+    </div>
+    <form nz-form [formGroup]="paperLogsForm" class="login-form" (ngSubmit)="paperLogs()">
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <input type="text" nz-input formControlName="name" placeholder="请填写票据名称" />
+          </nz-input-group>
+          <nz-form-explain *ngIf="paperLogsForm.get('name')?.dirty && paperLogsForm.get('name')?.errors">
+            请填写票据名称
+          </nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <input nz-input formControlName="id_1" placeholder="请填写票据id" />
+          </nz-input-group>
+          <nz-form-explain *ngIf="paperLogsForm.get('id_1')?.dirty && paperLogsForm.get('id_1')?.errors">
+            请填写票据id
+          </nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button class="login-form-button" [nzType]="'primary'">确认查询</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+
+  <div class='subOutline'>
+    <div class='pDiv'>
+      <p>调取参与方操作记录</p>
+    </div>
+    <form nz-form [formGroup]="operationLogsForm" class="login-form" (ngSubmit)="operationLogs()">
+      <nz-form-item>
+        <nz-form-control>
+          <nz-select formControlName="role">
+            <nz-option nzValue="1" nzLabel="评级方"></nz-option>
+            <nz-option nzValue="2" nzLabel="准入方"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <input nz-input formControlName="id_2" placeholder="请填写参与方ID" />
+          </nz-input-group>
+          <nz-form-explain *ngIf="operationLogsForm.get('id_2')?.dirty && operationLogsForm.get('id_2')?.errors">
+            请填写参与方ID
+          </nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button class="login-form-button" [nzType]="'primary'">确认查询</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+
+  <div class='subOutline'>
+    <div class='pDiv'>
+      <p>调取市场参与者资料</p>
+    </div>
+    <form nz-form [formGroup]="operatorInfoForm" class="login-form" (ngSubmit)="operatorInfo()">
+      <nz-form-item>
+        <nz-form-control>
+          <nz-select formControlName="role">
+            <nz-option nzValue="1" nzLabel="评级方"></nz-option>
+            <nz-option nzValue="2" nzLabel="准入方"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <input nz-input formControlName="id_3" placeholder="请填写参与方ID" />
+          </nz-input-group>
+          <nz-form-explain *ngIf="operatorInfoForm.get('id_3')?.dirty && operatorInfoForm.get('id_3')?.errors">
+            请填写参与方ID
+          </nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <button nz-button class="login-form-button" [nzType]="'primary'">确认查询</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</div>

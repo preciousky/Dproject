@@ -12,6 +12,9 @@ import { ReleaseEndorseComponent } from './release-endorse/release-endorse.compo
 import { ReleaseDiscountComponent } from './release-discount/release-discount.component';
 import { ReleasePressComponent } from './release-press/release-press.component';
 import { ReleaseAcceptForHonourComponent } from './release-accept-for-honour/release-accept-for-honour.component';
+import { AccessHomeComponent } from './access-home/access-home.component';
+import { RankerHomeComponent } from './ranker-home/ranker-home.component';
+import { SupervisorHomeComponent } from './supervisor-home/supervisor-home.component'
 
 const routes: Routes = [
   {
@@ -61,6 +64,18 @@ const routes: Routes = [
   {
     path: 'toReleaseAcceptForHonour/:paperId',
     component: ReleaseAcceptForHonourComponent
+  },
+  {
+    path: 'rankerHome',
+    component: RankerHomeComponent
+  },
+  {
+    path: 'accessHome',
+    component: AccessHomeComponent
+  },
+  {
+    path: 'supervisorHome',
+    component: SupervisorHomeComponent
   }
 ];
 

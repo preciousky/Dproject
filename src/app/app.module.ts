@@ -21,6 +21,10 @@ import { ReleaseEndorseComponent } from './release-endorse/release-endorse.compo
 import { ReleaseDiscountComponent } from './release-discount/release-discount.component';
 import { ReleasePressComponent } from './release-press/release-press.component';
 import { ReleaseAcceptForHonourComponent } from './release-accept-for-honour/release-accept-for-honour.component';
+import { ShareService } from './service/share.service';
+import { RankerHomeComponent } from './ranker-home/ranker-home.component';
+import { AccessHomeComponent } from './access-home/access-home.component';
+import { SupervisorHomeComponent } from './supervisor-home/supervisor-home.component'
 
 registerLocaleData(en);
 
@@ -38,7 +42,10 @@ registerLocaleData(en);
     ReleaseEndorseComponent,
     ReleaseDiscountComponent,
     ReleasePressComponent,
-    ReleaseAcceptForHonourComponent
+    ReleaseAcceptForHonourComponent,
+    RankerHomeComponent,
+    AccessHomeComponent,
+    SupervisorHomeComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +56,7 @@ registerLocaleData(en);
     BrowserAnimationsModule,
     ReactiveFormsModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{ provide: NZ_I18N, useValue: en_US }, ShareService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

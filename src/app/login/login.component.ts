@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from '../service/http.service';
 import { NzNotificationService } from 'ng-zorro-antd';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ShareService } from '../service/share.service';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   notificationContent: string;
-  constructor(private router: Router, private fb: FormBuilder, private httpService: HttpService, private notification: NzNotificationService) { }
+  constructor(
+    private router: Router,
+    private fb: FormBuilder,
+    private httpService: HttpService,
+    private notification: NzNotificationService,
+    private shareService: ShareService) { }
   login(): void {
     for (const i in this.loginForm.controls) {
       this.loginForm.controls[i].markAsDirty();
@@ -29,8 +35,21 @@ export class LoginComponent implements OnInit {
           console.log('>>>>>>>>>>>>  received data >>>>>>>>>>>>>>>>>>>');
           console.log(data);
           if (data['code'] == 1) {
-            if(data['roleCode']==1){
-            this.router.navigate(['/home']);
+            if (data['roleCode'] == 1) {
+              this.shareService.emitChange('1');
+              this.router.navigate(['/home']);
+            }
+            else if (data['roleCode'] == 2) {
+              this.shareService.emitChange('2');
+              this.router.navigate(['/rankerHome']);
+            }
+            else if (data['roleCode'] == 3) {
+              this.shareService.emitChange('3');
+              this.router.navigate(['/accessHome']);
+            }
+            else if (data['roleCode'] == 4) {
+              this.shareService.emitChange('4');
+              this.router.navigate(['/supervisorHome']);
             }
           }
           else if (data['code'] == 2) {
