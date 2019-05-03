@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from '../service/http.service';
 import { NzNotificationService } from 'ng-zorro-antd';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-supervisor-home',
@@ -17,7 +18,8 @@ export class SupervisorHomeComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private httpService: HttpService,
-    private notification: NzNotificationService) { }
+    private notification: NzNotificationService,
+    private router: Router ) { }
 
   ngOnInit() {
     this.paperLogsForm = this.fb.group({
@@ -49,7 +51,7 @@ export class SupervisorHomeComponent implements OnInit {
           console.log('>>>>>>>>>>>>  received data >>>>>>>>>>>>>>>>>>>');
           console.log(data);
           if (true) {
-
+            this.router.navigate(['/paperLogs', this.paperLogsForm.value.id_1]);
           }
           else if (data['code'] == 2) {
             this.notificationContent = '用户不存在';
@@ -82,7 +84,7 @@ export class SupervisorHomeComponent implements OnInit {
           console.log('>>>>>>>>>>>>  received data >>>>>>>>>>>>>>>>>>>');
           console.log(data);
           if (true) {
-
+            //this.router.navigate(['/XXXXXXXXXXXXXXXXX', XXXXXXXXXX]);
           }
           else if (data['code'] == 2) {
             this.notificationContent = '用户不存在';
@@ -100,7 +102,7 @@ export class SupervisorHomeComponent implements OnInit {
         );
     }
   }
-  operatorInfo(): void {
+  playerInfo(): void {
     for (const i in this.operatorInfoForm.controls) {
       this.operatorInfoForm.controls[i].markAsDirty();
       this.operatorInfoForm.controls[i].updateValueAndValidity();
@@ -115,7 +117,7 @@ export class SupervisorHomeComponent implements OnInit {
           console.log('>>>>>>>>>>>>  received data >>>>>>>>>>>>>>>>>>>');
           console.log(data);
           if (true) {
-
+            this.router.navigate(['/playerInfoResponce', this.operatorInfoForm.value.id_3]);
           }
           else if (data['code'] == 2) {
             this.notificationContent = '用户不存在';

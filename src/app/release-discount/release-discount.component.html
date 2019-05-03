@@ -4,46 +4,34 @@
   </div>
 </div>
 <div style="float: left; height: 720px">
-  <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+  <form nz-form [formGroup]="discountForm" class="login-form" (ngSubmit)="discount()">
     <nz-form-item>
-      <nz-form-label [nzXs]="24" [nzSm]="4">
-        Passengers
+      <nz-form-label>
+        申请票据ID
       </nz-form-label>
       <nz-form-control>
         <nz-input-group>
-          <input type="text" nz-input formControlName="userName" placeholder="Username" />
+          <input type="text" nz-input formControlName="paperId" placeholder="申请票据ID"  [(ngModel)]="paperId"/>
         </nz-input-group>
-        <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">
-          Please input your username!</nz-form-explain>
+        <nz-form-explain *ngIf="discountForm.get('paperId')?.dirty && discountForm.get('paperId')?.errors">
+          请输入申请票据ID</nz-form-explain>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label [nzXs]="24" [nzSm]="4">
-        Passengers
+      <nz-form-label>
+        贴现金额
       </nz-form-label>
       <nz-form-control>
         <nz-input-group>
-          <input type="text" nz-input formControlName="userName" placeholder="Username" />
+          <input type="number" nz-input formControlName="cashData" placeholder="贴现金额" />
         </nz-input-group>
-        <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">
-          Please input your username!</nz-form-explain>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzXs]="24" [nzSm]="4">
-        Passengers
-      </nz-form-label>
-      <nz-form-control>
-        <nz-input-group>
-          <input type="text" nz-input formControlName="userName" placeholder="Username" />
-        </nz-input-group>
-        <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">
-          Please input your username!</nz-form-explain>
+        <nz-form-explain *ngIf="discountForm.get('cashData')?.dirty && discountForm.get('cashData')?.errors">
+          请输入贴现金额</nz-form-explain>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-control>
-        <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
+        <button nz-button class="login-form-button" [nzType]="'primary'">确认申请贴现</button>
       </nz-form-control>
     </nz-form-item>
   </form>

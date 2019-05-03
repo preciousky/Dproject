@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../service/http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-access-home',
@@ -8,20 +9,20 @@ import { HttpService } from '../service/http.service';
 })
 export class AccessHomeComponent implements OnInit {
   notificationContent: string;
-
-  constructor(private httpService: HttpService) { }
+  playerId: string = 'init-access-player-id';
+  constructor(private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
   }
 
   getUserInfos(): void {
-    console.log('users infos');
+    this.router.navigate(['/userInfos']);
   }
   getApiDocs(): void {
-    console.log('api doc');
+    this.router.navigate(['/apiDocs']);
   }
   getMyInfo(): void {
-    console.log('player info');
+    this.router.navigate(['/playerInfo', this.playerId]);
   }
-  
+
 }

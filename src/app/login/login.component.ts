@@ -30,25 +30,29 @@ export class LoginComponent implements OnInit {
         "username": this.loginForm.value.username,
         "password": this.loginForm.value.password
       });
-      this.httpService.postData('user/userLogin', body)
+      this.httpService.postData('login', body)
         .subscribe(data => {
           console.log('>>>>>>>>>>>>  received data >>>>>>>>>>>>>>>>>>>');
           console.log(data);
+          var emitBody = JSON.stringify({
+            "roleCode": data['roleCode'],
+            "userId": data['userId']
+          });
           if (data['code'] == 1) {
             if (data['roleCode'] == 1) {
-              this.shareService.emitChange('1');
+              this.shareService.emitChange(emitBody);
               this.router.navigate(['/home']);
             }
             else if (data['roleCode'] == 2) {
-              this.shareService.emitChange('2');
+              this.shareService.emitChange(emitBody);
               this.router.navigate(['/rankerHome']);
             }
             else if (data['roleCode'] == 3) {
-              this.shareService.emitChange('3');
+              this.shareService.emitChange(emitBody);
               this.router.navigate(['/accessHome']);
             }
             else if (data['roleCode'] == 4) {
-              this.shareService.emitChange('4');
+              this.shareService.emitChange(emitBody);
               this.router.navigate(['/supervisorHome']);
             }
           }

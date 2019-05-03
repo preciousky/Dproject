@@ -1,103 +1,97 @@
-<nz-tabset nzTabPosition="left" style="height: 720px; text-align: -webkit-center;
-text-align: center;" [nzSelectedIndex]="selectedNum">
-  <nz-tab nzTitle="我的票据">
-    <app-my-card [myCard]="myCard"></app-my-card>
-    <app-my-card [myCard]="myCard"></app-my-card>
-    <app-my-card [myCard]="myCard"></app-my-card>
-    <app-my-card [myCard]="myCard"></app-my-card>
+<nz-tabset nzTabPosition="left" style="height: 720px;" [nzSelectedIndex]="selectedNum">
+  <nz-tab nzTitle="我的票据" style="text-align: -webkit-center; text-align: center;">
+    <app-my-card *ngFor="let myCard of myCards" [myCard]="myCard"></app-my-card>
   </nz-tab>
   <nz-tab nzTitle="出票申请">
-    <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+    <form nz-form [formGroup]="drawPaperForm" class="login-form" (ngSubmit)="toDrawPaper()">
       <nz-form-item>
-        <nz-form-label [nzXs]="24" [nzSm]="4">
-          Passengers
+        <nz-form-label>
+          票据名称
         </nz-form-label>
         <nz-form-control>
           <nz-input-group>
-            <input type="text" nz-input formControlName="userName" placeholder="Username" />
+            <input type="text" nz-input formControlName="paperName" placeholder="票据名称" />
           </nz-input-group>
-          <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">
-            Please input your username!</nz-form-explain>
+          <nz-form-explain *ngIf="drawPaperForm.get('paperName')?.dirty && drawPaperForm.get('paperName')?.errors">
+            请输入票据名称!</nz-form-explain>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label [nzXs]="24" [nzSm]="4">
-          Passengers
+        <nz-form-label>
+          受票人ID
         </nz-form-label>
         <nz-form-control>
           <nz-input-group>
-            <input type="text" nz-input formControlName="userName" placeholder="Username" />
+            <input type="text" nz-input formControlName="acceptingUserId" placeholder="受票人ID" />
           </nz-input-group>
-          <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">
-            Please input your username!</nz-form-explain>
+          <nz-form-explain *ngIf="drawPaperForm.get('acceptingUserId')?.dirty && drawPaperForm.get('acceptingUserId')?.errors">
+            请输入受票人ID!</nz-form-explain>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label [nzXs]="24" [nzSm]="4">
-          Passengers
+        <nz-form-label>
+          票据金额
         </nz-form-label>
         <nz-form-control>
           <nz-input-group>
-            <input type="text" nz-input formControlName="userName" placeholder="Username" />
+            <input type="number" nz-input formControlName="value" placeholder="票据金额" />
           </nz-input-group>
-          <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">
-            Please input your username!</nz-form-explain>
+          <nz-form-explain *ngIf="drawPaperForm.get('value')?.dirty && drawPaperForm.get('value')?.errors">
+            请输入票据金额!</nz-form-explain>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label [nzXs]="24" [nzSm]="4">
-          Passengers
+        <nz-form-label>
+          收款人ID
         </nz-form-label>
         <nz-form-control>
           <nz-input-group>
-            <input type="text" nz-input formControlName="userName" placeholder="Username" />
+            <input type="text" nz-input formControlName="holdingUserId" placeholder="收款人ID" />
           </nz-input-group>
-          <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">
-            Please input your username!</nz-form-explain>
+          <nz-form-explain *ngIf="drawPaperForm.get('holdingUserId')?.dirty && drawPaperForm.get('holdingUserId')?.errors">
+            请输入收款人ID!</nz-form-explain>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
-        <nz-form-label [nzXs]="24" [nzSm]="4">
-          Passengers
-        </nz-form-label>
-        <nz-form-control>
-          <nz-input-group>
-            <input type="password" nz-input formControlName="password" placeholder="Password" />
-          </nz-input-group>
-          <nz-form-explain *ngIf="validateForm.get('password')?.dirty && validateForm.get('password')?.errors">
-            Please input your Password!
-          </nz-form-explain>
-        </nz-form-control>
-      </nz-form-item>
-
-      <nz-form-item>
-        <nz-form-label [nzXs]="24" [nzSm]="4">
-          Passengers
+        <nz-form-label>
+          承兑方式
         </nz-form-label>
         <nz-form-control>
           <nz-input-group>
             <!-- <input type="password" nz-input formControlName="password" placeholder="Password" /> -->
-            <nz-select nz-input formControlName="password" style="width: 120px;" [(ngModel)]="selectedValue"
-              nzAllowClear nzPlaceHolder="Choose">
-              <nz-option nzValue="jack" nzLabel="Jack"></nz-option>
-              <nz-option nzValue="lucy" nzLabel="Lucy"></nz-option>
+            <nz-select nz-input formControlName="rule" style="width: 500px" nzAllowClear nzPlaceHolder="选择承兑方式">
+              <nz-option nzValue="1" nzLabel="见票即期"></nz-option>
+              <nz-option nzValue="2" nzLabel="见票远期"></nz-option>
             </nz-select>
           </nz-input-group>
-          <nz-form-explain *ngIf="validateForm.get('password')?.dirty && validateForm.get('password')?.errors">
-            Please input your Password!
+          <nz-form-explain *ngIf="drawPaperForm.get('rule')?.dirty && drawPaperForm.get('rule')?.errors">
+            请选择承兑方式!
+          </nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label>
+          兑付时长(天)
+        </nz-form-label>
+        <nz-form-control>
+          <nz-input-group>
+            <input nz-input type="number" formControlName="ruleData" placeholder="见票兑付时长" />
+          </nz-input-group>
+          <nz-form-explain *ngIf="drawPaperForm.get('ruleData')?.dirty && drawPaperForm.get('ruleData')?.errors">
+            请输入见票兑付时长!
           </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
         <nz-form-control>
-          <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
+          <button nz-button class="login-form-button" [nzType]="'primary'">确认出票</button>
         </nz-form-control>
       </nz-form-item>
     </form>
   </nz-tab>
 
   <nz-tab nzTitle="等待支付">
-    <nz-table #basicTable [nzData]="listOfData" style=" margin: 20px 5px;">
+    <nz-table #basicTable [nzData]="listOfPayingPapers" style=" margin: 20px 5px;" [nzPageSize] = "18">
       <thead>
         <tr>
           <th>票据ID</th>
@@ -113,16 +107,24 @@ text-align: center;" [nzSelectedIndex]="selectedNum">
       </thead>
       <tbody>
         <tr *ngFor="let data of basicTable.data">
-          <td>{{ data.name }}</td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
-          <td>{{ data.address }}</td>
+          <td>{{ data.paperId }}</td>
+          <td>{{ data.value }}</td>
+          <td>{{ data.dDate }}</td>
+          <td>{{ data.mDate }}</td>
+          <td>{{ data.acceptDate }}</td>
+          <td>{{ data.drawerName }}</td>
+          <td>{{ data.payeeName }}</td>
+          <td>{{ data.acceptForHonourUserName }}</td>
           <td>
-            <a>主动承兑</a>
+            <a *ngIf="data.state==9" style="color:green">已经兑付</a>
+            <a *ngIf="data.state==6 && data.rule==2" style="color:black" (click)="payFuture(data.paperId)">远期兑付</a>
+            <a *ngIf="data.state==4 && data.rule==1" style="color:blue" (click)="pay(data.paperId)">即期承兑</a>
+            <a *ngIf="data.state==8" style="color:red" (click)="payPress(data.paperId)">追索兑付</a>
+            <a *ngIf="
+            (data.state!=9) &&
+            !(data.state==6 && data.rule==2)&&
+            !(data.state==4 && data.rule==1)&&
+            (data.state!=8)" style="color:red; font-weigh:900">错误</a>
           </td>
         </tr>
       </tbody>

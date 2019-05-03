@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../service/http.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-ranker-home',
@@ -6,20 +8,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./ranker-home.component.css']
 })
 export class RankerHomeComponent implements OnInit {
-
-  constructor() { }
+  playerId: string = 'init-ranker-player-id';
+  constructor(private httpService: HttpService, private router: Router) { }
 
   ngOnInit() {
   }
 
   getRankingPapers(): void {
-    console.log('get Ranking Papers');
+    this.router.navigate(['/rankingPapers']);
   }
   getApiDocs(): void {
-    console.log('api doc');
+    this.router.navigate(['/apiDocs']);
   }
   getMyInfo(): void {
-    console.log('player info');
+    this.router.navigate(['/playerInfo', this.playerId]);
   }
 
 }

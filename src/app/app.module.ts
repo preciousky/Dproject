@@ -24,7 +24,14 @@ import { ReleaseAcceptForHonourComponent } from './release-accept-for-honour/rel
 import { ShareService } from './service/share.service';
 import { RankerHomeComponent } from './ranker-home/ranker-home.component';
 import { AccessHomeComponent } from './access-home/access-home.component';
-import { SupervisorHomeComponent } from './supervisor-home/supervisor-home.component'
+import { SupervisorHomeComponent } from './supervisor-home/supervisor-home.component';
+import { PlayerInfoComponent } from './player-info/player-info.component';
+import { RankingPapersComponent } from './ranking-papers/ranking-papers.component';
+import { UserInfosComponent } from './user-infos/user-infos.component';
+import { UserPapersComponent } from './user-papers/user-papers.component';
+import { ApiDocsComponent } from './api-docs/api-docs.component';
+import { PlayerInfoResponceComponent } from './player-info-responce/player-info-responce.component';
+import { PaperLogsComponent } from './paper-logs/paper-logs.component'
 
 registerLocaleData(en);
 
@@ -45,7 +52,14 @@ registerLocaleData(en);
     ReleaseAcceptForHonourComponent,
     RankerHomeComponent,
     AccessHomeComponent,
-    SupervisorHomeComponent
+    SupervisorHomeComponent,
+    PlayerInfoComponent,
+    RankingPapersComponent,
+    UserInfosComponent,
+    UserPapersComponent,
+    ApiDocsComponent,
+    PlayerInfoResponceComponent,
+    PaperLogsComponent
   ],
   imports: [
     BrowserModule,

@@ -1,11 +1,11 @@
 <img style="height: 420px; width:700px; float: left" src="../../assets/pics/mainPageUp.png">
 <div id="logOutline">
-<form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+<form nz-form [formGroup]="logupForm" (ngSubmit)="logup()">
     <nz-form-item>
-        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired nzFor="email"><b class="labels">电子邮箱</b></nz-form-label>
+        <nz-form-label [nzSm]="6" [nzXs]="24" nzRequired><b class="labels">电子邮箱</b></nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
-        <input nz-input formControlName="email" id="email" />
-        <nz-form-explain *ngIf="validateForm.get('email')?.dirty && validateForm.get('email')?.errors">
+        <input nz-input formControlName="username" id="username" />
+        <nz-form-explain *ngIf="logupForm.get('username')?.dirty && logupForm.get('username')?.errors">
             请输入您的电子邮箱
         </nz-form-explain>
         </nz-form-control>
@@ -19,7 +19,7 @@
             id="password"
             formControlName="password"
             (ngModelChange)="updateConfirmValidator()"/>
-        <nz-form-explain *ngIf="validateForm.get('password')?.dirty && validateForm.get('password')?.errors">
+        <nz-form-explain *ngIf="logupForm.get('password')?.dirty && logupForm.get('password')?.errors">
             请输入您的密码
         </nz-form-explain>
         </nz-form-control>
@@ -28,11 +28,11 @@
         <nz-form-label [nzSm]="6" [nzXs]="24" nzFor="checkPassword" nzRequired><b class="labels">确认密码</b></nz-form-label>
         <nz-form-control [nzSm]="14" [nzXs]="24">
             <input nz-input type="password" formControlName="checkPassword" id="checkPassword" />
-            <nz-form-explain *ngIf="validateForm.get('checkPassword')?.dirty && validateForm.get('checkPassword')?.errors">
-                <ng-container *ngIf="validateForm.get('checkPassword')?.hasError('required')">
+            <nz-form-explain *ngIf="logupForm.get('checkPassword')?.dirty && logupForm.get('checkPassword')?.errors">
+                <ng-container *ngIf="logupForm.get('checkPassword')?.hasError('required')">
                 请确认您的密码
                 </ng-container>
-                <ng-container *ngIf="validateForm.get('checkPassword')?.hasError('confirm')">
+                <ng-container *ngIf="logupForm.get('checkPassword')?.hasError('confirm')">
                 您两次输入的密码不同
                 </ng-container>
             </nz-form-explain>

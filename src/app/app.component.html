@@ -39,13 +39,13 @@
             <ul>
               <ul>
                 <li nz-menu-item>
-                  <a [routerLink]="['/myBusiness', 'papers']">我的票据</a>
+                  <a [routerLink]="['/myBusiness', 'papers']" [queryParams]="{userId:userId}">我的票据</a>
                 </li>
                 <li nz-menu-item>
-                  <a [routerLink]="['/myBusiness', 'drawing']">出票申请</a>
+                  <a [routerLink]="['/myBusiness', 'drawing']" [queryParams]="{userId:userId}">出票申请</a>
                 </li>
                 <li nz-menu-item>
-                  <a [routerLink]="['/myBusiness', 'paying']">等待支付</a>
+                  <a [routerLink]="['/myBusiness', 'paying']" [queryParams]="{userId:userId}">等待支付</a>
                 </li>
               </ul>
             </ul>
@@ -58,16 +58,16 @@
             <ul>
               <ul>
                 <li nz-menu-item>
-                  <a [routerLink]="['/newBusiness', 'discounting']">待贴现的票据</a>
+                  <a [routerLink]="['/newBusiness', 'discounting']" [queryParams]="{userId:userId}" >待贴现的票据</a>
                 </li>
                 <li nz-menu-item>
-                  <a [routerLink]="['/newBusiness', 'endorsing']">签收背书票据</a>
+                  <a [routerLink]="['/newBusiness', 'endorsing']" [queryParams]="{userId:userId}">签收背书票据</a>
                 </li>
                 <li nz-menu-item>
-                  <a [routerLink]="['/newBusiness', 'accepting']">处理承兑申请</a>
+                  <a [routerLink]="['/newBusiness', 'accepting']" [queryParams]="{userId:userId}">处理承兑申请</a>
                 </li>
                 <li nz-menu-item>
-                  <a [routerLink]="['/newBusiness', 'acceptingForHonour']">处理参与承兑</a>
+                  <a [routerLink]="['/newBusiness', 'acceptingForHonour']" [queryParams]="{userId:userId}">处理参与承兑</a>
                 </li>
               </ul>
             </ul>

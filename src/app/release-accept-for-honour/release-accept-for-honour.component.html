@@ -4,46 +4,46 @@
   </div>
 </div>
 <div style="float: left; height: 720px">
-  <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
+  <form nz-form [formGroup]="acceptForHonourForm" class="login-form" (ngSubmit)="acceptForHonour()">
     <nz-form-item>
-      <nz-form-label [nzXs]="24" [nzSm]="4">
-        Passengers
+      <nz-form-label>
+        票据ID
       </nz-form-label>
       <nz-form-control>
         <nz-input-group>
-          <input type="text" nz-input formControlName="userName" placeholder="Username" />
+          <input type="text" nz-input formControlName="paperId" placeholder="票据ID" />
         </nz-input-group>
-        <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">
-          Please input your username!</nz-form-explain>
+        <nz-form-explain *ngIf="acceptForHonourForm.get('paperId')?.dirty && acceptForHonourForm.get('paperId')?.errors">
+          请输入票据ID</nz-form-explain>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label [nzXs]="24" [nzSm]="4">
-        Passengers
+      <nz-form-label>
+        申请参与承兑方ID
       </nz-form-label>
       <nz-form-control>
         <nz-input-group>
-          <input type="text" nz-input formControlName="userName" placeholder="Username" />
+          <input type="text" nz-input formControlName="acceptingForHonourUserId" placeholder="申请参与承兑方ID" />
         </nz-input-group>
-        <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">
-          Please input your username!</nz-form-explain>
+        <nz-form-explain *ngIf="acceptForHonourForm.get('acceptingForHonourUserId')?.dirty && acceptForHonourForm.get('acceptingForHonourUserId')?.errors">
+          请输入申请参与承兑方ID</nz-form-explain>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
-      <nz-form-label [nzXs]="24" [nzSm]="4">
-        Passengers
+      <nz-form-label>
+        申请保证金
       </nz-form-label>
       <nz-form-control>
         <nz-input-group>
-          <input type="text" nz-input formControlName="userName" placeholder="Username" />
+          <input type="number" nz-input formControlName="cashData" placeholder="申请保证金" />
         </nz-input-group>
-        <nz-form-explain *ngIf="validateForm.get('userName')?.dirty && validateForm.get('userName')?.errors">
-          Please input your username!</nz-form-explain>
+        <nz-form-explain *ngIf="acceptForHonourForm.get('cashData')?.dirty && acceptForHonourForm.get('cashData')?.errors">
+          请输入申请保证金</nz-form-explain>
       </nz-form-control>
     </nz-form-item>
     <nz-form-item>
       <nz-form-control>
-        <button nz-button class="login-form-button" [nzType]="'primary'">Log in</button>
+        <button nz-button class="login-form-button" [nzType]="'primary'">确认申请参与承兑</button>
       </nz-form-control>
     </nz-form-item>
   </form>

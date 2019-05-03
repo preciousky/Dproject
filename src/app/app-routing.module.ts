@@ -14,7 +14,14 @@ import { ReleasePressComponent } from './release-press/release-press.component';
 import { ReleaseAcceptForHonourComponent } from './release-accept-for-honour/release-accept-for-honour.component';
 import { AccessHomeComponent } from './access-home/access-home.component';
 import { RankerHomeComponent } from './ranker-home/ranker-home.component';
-import { SupervisorHomeComponent } from './supervisor-home/supervisor-home.component'
+import { SupervisorHomeComponent } from './supervisor-home/supervisor-home.component';
+import { PlayerInfoComponent } from './player-info/player-info.component';
+import { RankingPapersComponent } from './ranking-papers/ranking-papers.component';
+import { UserInfosComponent } from './user-infos/user-infos.component';
+import { UserPapersComponent } from './user-papers/user-papers.component';
+import { ApiDocsComponent } from './api-docs/api-docs.component';
+import { PlayerInfoResponceComponent } from './player-info-responce/player-info-responce.component'
+import { PaperLogsComponent } from './paper-logs/paper-logs.component'
 
 const routes: Routes = [
   {
@@ -36,6 +43,26 @@ const routes: Routes = [
   {
     path: 'userInfo/:userId',
     component: UserInfoComponent
+  },
+  {
+    path: 'userInfos',
+    component: UserInfosComponent
+  },
+  {
+    path: 'apiDocs',
+    component: ApiDocsComponent
+  },
+  {
+    path: 'playerInfo/:playerId',
+    component: PlayerInfoComponent
+  },
+  {
+    path: 'playerInfoResponce/:playerId',
+    component: PlayerInfoResponceComponent
+  },
+  {
+    path: 'rankingPapers',
+    component: RankingPapersComponent
   },
   {
     path: 'myBusiness/:part',
@@ -76,11 +103,19 @@ const routes: Routes = [
   {
     path: 'supervisorHome',
     component: SupervisorHomeComponent
+  },
+  {
+    path: 'userPapers/:userId',
+    component: UserPapersComponent
+  },
+  {
+    path: 'paperLogs/:paperId',
+    component: PaperLogsComponent
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

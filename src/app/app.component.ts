@@ -15,9 +15,12 @@ export class AppComponent {
   constructor(
     private shareService: ShareService) {
     shareService.changeEmitted$.subscribe(
-      text => {
-        console.log('roleCode: ' + text);
-        this.roleCode = text;
+      body => {
+        var jsonBody = JSON.parse(body);
+        console.log(jsonBody);
+        console.log('roleCode: ' + jsonBody['roleCode']);
+        this.roleCode = jsonBody['roleCode'];
+        this.userId = jsonBody['userId'];
         if(this.roleCode == 1){
           this.platform = '用户平台';
         }

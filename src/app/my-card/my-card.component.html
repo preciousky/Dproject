@@ -67,11 +67,11 @@
     <button nz-button nzType="default" (click)="toReleaseEndorse()">发起背书</button>
   </div>
   <div class= "buttonDiv">
-    <button *ngIf="flagTest"nz-button nzType="default">申请承兑</button>
-    <button *ngIf="!flagTest" nz-button nzType="danger" (click)="toReleasePress()">退票追索</button>
+    <button *ngIf="myCard.state!=7"nz-button nzType="default" (click)="toReleaseAccept()">申请承兑</button>
+    <button *ngIf="myCard.state==7" nz-button nzType="danger" (click)="toReleasePress()">退票追索</button>
   </div>
   <div class= "buttonDiv" style="margin: 5px -5px 0 0px; width: 110px">
-    <button *ngIf="!flagTest" nz-button nzType="default" (click)="toReleaseDiscount()">申请贴现</button>
-    <button *ngIf="flagTest"nz-button nzType="danger">撤回贴现</button>
+    <button *ngIf="myCard.state!=3" nz-button nzType="default" (click)="toReleaseDiscount()">申请贴现</button>
+    <button *ngIf="myCard.state==3"nz-button nzType="danger" (click)="toRevokeDiscount()">撤回贴现</button>
   </div>
 </div>
