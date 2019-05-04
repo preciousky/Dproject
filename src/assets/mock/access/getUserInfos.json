@@ -1,0 +1,44 @@
+{
+	"userInfos":[
+		{
+			"userName":"username",
+			"userId":"999zzz",
+			"logupDate":"2019-2-3",
+			"rankInfo":"1",
+			"account":"19389",
+			"tel":"980-92894090",
+			"email":"data@test.com",
+			"address":"Asidal Youu Street 123-098"
+		},
+		{
+			"userName":"username",
+			"userId":"999zzz",
+			"logupDate":"2019-2-3",
+			"rankInfo":"1",
+			"account":"19389",
+			"tel":"980-92894090",
+			"email":"data@test.com",
+			"address":"Asidal Youu Street 123-098"
+		},
+		{
+			"userName":"username",
+			"userId":"999zzz",
+			"logupDate":"2019-2-3",
+			"rankInfo":"1",
+			"account":"19389",
+			"tel":"980-92894090",
+			"email":"data@test.com",
+			"address":"Asidal Youu Street 123-098"
+		},
+		{
+			"userName":"username",
+			"userId":"999zzz",
+			"logupDate":"2019-2-3",
+			"rankInfo":"1",
+			"account":"19389",
+			"tel":"980-92894090",
+			"email":"data@test.com",
+			"address":"Asidal Youu Street 123-098"
+		}
+	]
+}

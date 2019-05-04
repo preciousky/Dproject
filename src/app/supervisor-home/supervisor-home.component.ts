@@ -12,14 +12,14 @@ import { Router } from '@angular/router';
 export class SupervisorHomeComponent implements OnInit {
   paperLogsForm: FormGroup;
   operationLogsForm: FormGroup;
-  operatorInfoForm: FormGroup;
+  playerInfoResForm: FormGroup;
   notificationContent: string;
 
   constructor(
     private fb: FormBuilder,
     private httpService: HttpService,
     private notification: NzNotificationService,
-    private router: Router ) { }
+    private router: Router) { }
 
   ngOnInit() {
     this.paperLogsForm = this.fb.group({
@@ -30,7 +30,7 @@ export class SupervisorHomeComponent implements OnInit {
       role: [null, [Validators.required]],
       id_2: [null, [Validators.required]]
     });
-    this.operatorInfoForm = this.fb.group({
+    this.playerInfoResForm = this.fb.group({
       role: [null, [Validators.required]],
       id_3: [null, [Validators.required]]
     });
@@ -41,32 +41,11 @@ export class SupervisorHomeComponent implements OnInit {
       this.paperLogsForm.controls[i].markAsDirty();
       this.paperLogsForm.controls[i].updateValueAndValidity();
     }
-    if (!this.paperLogsForm.controls['name'].hasError('required') && !this.paperLogsForm.controls['id_1'].hasError('required')) {
-      var body = JSON.stringify({
-        "name": this.paperLogsForm.value.name,
-        "id": this.paperLogsForm.value.id_1
-      });
-      this.httpService.postData('user/userLogin', body)
-        .subscribe(data => {
-          console.log('>>>>>>>>>>>>  received data >>>>>>>>>>>>>>>>>>>');
-          console.log(data);
-          if (true) {
-            this.router.navigate(['/paperLogs', this.paperLogsForm.value.id_1]);
-          }
-          else if (data['code'] == 2) {
-            this.notificationContent = '用户不存在';
-            this.createBasicNotification();
-          }
-          else if (data['code'] == 3) {
-            this.notificationContent = '密码错误';
-            this.createBasicNotification();
-          }
-          console.log('######################link finish############################');
-        },
-          error => {
-            console.log(error);
-          }
-        );
+    if (
+      !this.paperLogsForm.controls['name'].hasError('required') &&
+      !this.paperLogsForm.controls['id_1'].hasError('required')
+    ) {
+      this.router.navigate(['paperLogs', this.paperLogsForm.value.id_1]);
     }
   }
   operationLogs(): void {
@@ -74,66 +53,25 @@ export class SupervisorHomeComponent implements OnInit {
       this.operationLogsForm.controls[i].markAsDirty();
       this.operationLogsForm.controls[i].updateValueAndValidity();
     }
-    if (!this.operationLogsForm.controls['role'].hasError('required') && !this.operationLogsForm.controls['id_2'].hasError('required')) {
-      var body = JSON.stringify({
-        "role": this.operationLogsForm.value.role,
-        "id": this.operationLogsForm.value.id_2
-      });
-      this.httpService.postData('user/userLogin', body)
-        .subscribe(data => {
-          console.log('>>>>>>>>>>>>  received data >>>>>>>>>>>>>>>>>>>');
-          console.log(data);
-          if (true) {
-            //this.router.navigate(['/XXXXXXXXXXXXXXXXX', XXXXXXXXXX]);
-          }
-          else if (data['code'] == 2) {
-            this.notificationContent = '用户不存在';
-            this.createBasicNotification();
-          }
-          else if (data['code'] == 3) {
-            this.notificationContent = '密码错误';
-            this.createBasicNotification();
-          }
-          console.log('######################link finish############################');
-        },
-          error => {
-            console.log(error);
-          }
-        );
+    if (
+      !this.operationLogsForm.controls['role'].hasError('required') &&
+      !this.operationLogsForm.controls['id_2'].hasError('required')
+    ) {
+      this.router.navigate(['paperLogs', this.operationLogsForm.value.id_2]);
     }
   }
-  playerInfo(): void {
-    for (const i in this.operatorInfoForm.controls) {
-      this.operatorInfoForm.controls[i].markAsDirty();
-      this.operatorInfoForm.controls[i].updateValueAndValidity();
+  playerInfoRes(): void {
+    for (const i in this.playerInfoResForm.controls) {
+      this.playerInfoResForm.controls[i].markAsDirty();
+      this.playerInfoResForm.controls[i].updateValueAndValidity();
     }
-    if (!this.operatorInfoForm.controls['role'].hasError('required') && !this.operatorInfoForm.controls['id_3'].hasError('required')) {
-      var body = JSON.stringify({
-        "role": this.operatorInfoForm.value.role,
-        "id": this.operatorInfoForm.value.id_3
-      });
-      this.httpService.postData('user/userLogin', body)
-        .subscribe(data => {
-          console.log('>>>>>>>>>>>>  received data >>>>>>>>>>>>>>>>>>>');
-          console.log(data);
-          if (true) {
-            this.router.navigate(['/playerInfoResponce', this.operatorInfoForm.value.id_3]);
-          }
-          else if (data['code'] == 2) {
-            this.notificationContent = '用户不存在';
-            this.createBasicNotification();
-          }
-          else if (data['code'] == 3) {
-            this.notificationContent = '密码错误';
-            this.createBasicNotification();
-          }
-          console.log('######################link finish############################');
-        },
-          error => {
-            console.log(error);
-          }
-        );
+    if (
+      !this.playerInfoResForm.controls['role'].hasError('required') &&
+      !this.playerInfoResForm.controls['id_3'].hasError('required')
+    ) {
+      this.router.navigate(['playerInfoResponce', this.playerInfoResForm.value.id_3]);
     }
+
   }
   createBasicNotification(): void {
     this.notification.blank(

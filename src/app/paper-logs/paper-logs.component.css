@@ -1,0 +1,35 @@
+.sideBarContent {
+    color: white;
+    font-weight: 900;
+    font-size: x-large;
+    margin: 80px 0px 0px 40px;
+}
+
+.div1{
+    float:left;
+    height:30px;
+    font-size: larger;
+    font-weight: bold;
+    width:110px;
+    color: #b7b7b7;
+}
+
+.div2{
+    float:left;
+    height:30px;
+    font-size: larger;
+    font-weight: bold;
+    width:180px;
+}
+.div3{
+    float:left;
+    height:30px;
+    font-size: larger;
+    font-weight: bold;
+    width:482px;
+}
+
+.divAll{
+    margin:3px;
+    border-bottom: solid #e2e2e2 1px;
+}

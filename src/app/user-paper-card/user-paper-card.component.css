@@ -1,13 +1,8 @@
-::ng-deep .ant-btn, .ant-btn:active, .ant-btn:focus {
-    font-weight: bolder;
-    height: 25px;
-}
-
 #outline {
     /* 边框是往内面去的，+1px的边框就是+1px的padding */
     border: solid #001529 5px;
     float: left;
-    height: 298px;
+    height: 260px;
     width: 440px;
     margin: 10px;
     padding: 5px;
@@ -22,13 +17,4 @@
     border-bottom: solid #e2e2e2 1px;
     float: left;
     margin: 5px 0px;
-}
-
-.buttonDiv {
-    width: 105px;
-    height: 38px;
-    float: left;
-    margin: 5px 0px -5px 0px;
-    background: #001529;
-    padding: 7px
 }

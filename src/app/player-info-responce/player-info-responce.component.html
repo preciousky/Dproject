@@ -1,3 +1,43 @@
-<p>
-  player-info-responce works!
-</p>
+<div style="float: left; height:720px; width: 150px; background: #001529">
+    <div class="sideBarContent">
+      查询参与方资料
+    </div>
+  </div>
+  <div style="float: left;float: left;margin: 70px 100px;">
+    <table>
+      <tbody> 
+        <tr>
+          <td class="firstCol">参与者类别</td>
+          <td>{{playerInfoRes.role}}</td>
+        </tr>
+        <tr>
+          <td class="firstCol">参与者ID</td>
+          <td>{{playerInfoRes.playerId}}</td>
+        </tr>
+        <tr>
+          <td class="firstCol">注册时间</td>
+          <td>{{playerInfoRes.logupDate}}</td>
+        </tr>
+        <tr>
+          <td class="firstCol">参与者名称</td>
+          <td>{{playerInfoRes.playerName}}</td>
+        </tr>
+        <tr>
+          <td class="firstCol">联系电话</td>
+          <td>{{playerInfoRes.tel}}</td>
+        </tr>
+        <tr>
+          <td class="firstCol">办公邮箱</td>
+          <td>{{playerInfoRes.email}}</td>
+        </tr>
+        <tr>
+          <td class="firstCol">联系地址</td>
+          <td>{{playerInfoRes.address}}</td>
+        </tr>
+        <tr>
+          <td class="firstCol">最近违规时间</td>
+          <td>{{playerInfoRes.break_date}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

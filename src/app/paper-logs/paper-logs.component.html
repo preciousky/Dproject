@@ -1,3 +1,123 @@
-<p>
-  paper-logs works!
-</p>
+<div style='float: left; height:720px; width: 150px; background: #001529'>
+  <div class='sideBarContent'>
+    票据记录
+  </div>
+</div>
+<div style="margin:22px 22px 0px 22px; float:left; width:906px">
+  <div class='div1 divAll'>
+    票据ID
+  </div>
+  <div class='div2 divAll'>
+{{paperInfo.paperId}}
+  </div>
+  <div class='div1 divAll'>
+    票据名称
+  </div>
+  <div class='div2 divAll'>
+    {{paperInfo.paperName}}
+  </div>
+  <div class='div1 divAll'>
+    票据金额
+  </div>
+  <div class='div2 divAll'>
+    {{paperInfo.value}}
+  </div>
+  <div class='div1 divAll'>
+    评级信息
+  </div>
+  <div class='div2 divAll'>
+    {{paperInfo.rankInfo}}
+  </div>
+  <div class='div1 divAll'>
+    评级方
+  </div>
+  <div class='div2 divAll'>
+    {{paperInfo.rankerName}}
+  </div>
+  <div class='div1 divAll'>
+    评级时间
+  </div>
+  <div class='div2 divAll'>
+    {{paperInfo.rankDate}}
+  </div>
+
+
+
+  <div class='div1 divAll'>
+    出票日期
+  </div>
+  <div class='div2 divAll'>
+    {{paperInfo.dDate}}
+  </div>
+  <div class='div1 divAll'>
+    到期日期
+  </div>
+  <div class='div3 divAll'>
+    {{paperInfo.mDate}}
+  </div>
+  <div class='div1 divAll'>
+    出票人ID
+  </div>
+  <div class='div2 divAll'>
+    {{paperInfo.drawerId}}
+  </div>
+  <div class='div1 divAll'>
+    出票人名称
+  </div>
+  <div class='div3 divAll'>
+    {{paperInfo.drawerName}}
+  </div>
+  <div class='div1 divAll'>
+    受票人ID
+  </div>
+  <div class='div2 divAll'>
+    {{paperInfo.payerId}}
+  </div>
+  <div class='div1 divAll'>
+    受票人名称
+  </div>
+  <div class='div3 divAll'>
+    {{paperInfo.paperName}}
+  </div>
+  <div class='div1 divAll'>
+    收款人ID
+  </div>
+  <div class='div2 divAll'>
+    {{paperInfo.payeeId}}
+  </div>
+  <div class='div1 divAll'>
+    收款人名称
+  </div>
+  <div class='div3 divAll'>
+    {{paperInfo.payeeName}}
+  </div>
+</div>
+
+<div style="margin:0px 22px; float:left; width:906px">
+  <nz-table #basicTable [nzData]="paperLogs" style=" margin: 20px 5px;" [nzPageSize]="6">
+    <thead>
+      <tr>
+        <th>变更时间</th>
+        <th>成交金额</th>
+        <th>持票人ID</th>
+        <th>持票人</th>
+        <th>票据状态</th>
+        <th>相关角色</th>
+        <th>相关方ID</th>
+        <th>相关方</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of basicTable.data">
+        <td>{{ data.stateTime }}</td>
+        <td>{{ data.cashData }}</td>
+        <td>{{ data.holderId }}</td>
+        <td>{{ data.holderName }}</td>
+        <td>{{ data.state }}</td>
+        <td>{{ data.stateRole }}</td>
+        <td>{{ data.stateRoleId }}</td>
+        <td>{{ data.stateRoleName }}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

@@ -61,7 +61,7 @@ const routes: Routes = [
     component: PlayerInfoResponceComponent
   },
   {
-    path: 'rankingPapers',
+    path: 'rankingPapers/:playerId',
     component: RankingPapersComponent
   },
   {

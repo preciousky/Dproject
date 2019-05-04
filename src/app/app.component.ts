@@ -9,8 +9,15 @@ import { ShareService } from './service/share.service'
 export class AppComponent {
   title = 'DLUTProject';
   userId: string;
-  logInState: boolean;
-  platform: string = '用户平台';
+  platform: string = '##未登录##';
+  /**
+   * roleCode == 
+   * 0 未登录
+   * 1 用户登录
+   * 2 评级方登录
+   * 3 准入方登录
+   * 4 监管方登录
+   */
   roleCode: number = 0;
   constructor(
     private shareService: ShareService) {
@@ -36,13 +43,14 @@ export class AppComponent {
       });
   }
   ngOnInit() {
-    this.logInState = false;
     this.userId = 'testUserId';
   }
 
   getRoleCode(roleCode: string) {
     console.log(roleCode);
   }
-
+  export(){
+    this.roleCode = 0;
+  }
 
 }

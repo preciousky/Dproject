@@ -1,3 +1,6 @@
-<p>
-  user-infos works!
-</p>
+<div style="float: left; height:720px; width: 150px; background: #001529">
+  <div class="sideBarContent">
+    用户列表
+  </div>
+</div>
+<app-user-card *ngFor="let userCard of userCards" [userCard]="userCard"></app-user-card>

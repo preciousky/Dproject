@@ -1,4 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpService } from '../service/http.service';
+import { ActivatedRoute } from '@angular/router';
+
+
+export interface PlayerInfo {
+  role?: string;
+	logupDate?: string;
+	playerName?: string;
+	playerId?: string;
+	tel?: string;
+	email?: String;
+	address?: string;
+}
 
 @Component({
   selector: 'app-player-info',
@@ -6,10 +19,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./player-info.component.css']
 })
 export class PlayerInfoComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
+  playerId: string;
+  playerInfo: PlayerInfo;
+  constructor(private httpService: HttpService, private route: ActivatedRoute) {
+    this.playerInfo = {};
   }
 
+  ngOnInit() {
+    this.playerId = this.route.snapshot.paramMap.get('playerId');
+    console.log("I have got the player ID, it is "+ this.playerId)
+    var body = JSON.stringify({
+      "playerId": this.playerId
+    });
+    this.httpService.postData('/getPlayerInfoById', body)
+      .subscribe(data => {
+        console.log('>>>>>>>>>>>>  received data >>>>>>>>>>>>>>>>>>>');
+        console.log(data);
+        this.playerInfo = data;
+        console.log('######################link finish############################');
+      },
+        error => {
+          console.log(error);
+        }
+      );
+  }
 }

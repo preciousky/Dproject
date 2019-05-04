@@ -1,3 +1,7 @@
-<p>
-  ranking-papers works!
-</p>
+<div style="float: left; height:720px; width: 150px; background: #001529">
+    <div class="sideBarContent">
+      等待评级票据
+    </div>
+  </div>
+  <app-ranking-paper-card *ngFor="let rankingPaperCard of rankingPaperCards" [rankingPaperCard]="rankingPaperCard" [playerId]="playerId"></app-ranking-paper-card>
+  

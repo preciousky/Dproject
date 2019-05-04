@@ -1,0 +1,84 @@
+<div id="outline">
+  <div class="inner" style="width: 110px;">
+    {{rankingPaperCard.paperName}}
+  </div>
+  <div class="inner" style="width: 60px;">
+    {{rankingPaperCard.state}}
+  </div>
+  <div class="inner" style="width: 250px;">
+    {{rankingPaperCard.paperId}}
+  </div>
+  <div class="inner" style="width: 60px;">
+    出票
+  </div>
+  <div class="inner" style="width: 150px;">
+    {{rankingPaperCard.dDate}}
+  </div>
+  <div class="inner" style="width: 60px;">
+    到期
+  </div>
+  <div class="inner" style="width: 150px;">
+    {{rankingPaperCard.mDate}}
+  </div>
+  <div class="inner" style="width: 60px;">
+    面值
+  </div>
+  <div class="inner" style="width: 150px;">
+    {{rankingPaperCard.value}}
+  </div>
+  <div class="inner" style="width: 60px;">
+    等级
+  </div>
+  <div class="inner" style="width: 150px;">
+    {{rankingPaperCard.rankInfo}}
+  </div>
+  <div class="inner" style="width: 140px;">
+    出票人
+  </div>
+  <div class="inner" style="width: 140px;">
+    受票人
+  </div>
+  <div class="inner" style="width: 140px;">
+    持有人
+  </div>
+  <div class="inner" style="width: 140px;">
+    {{rankingPaperCard.drawerName}}
+  </div>
+  <div class="inner" style="width: 140px;">
+    {{rankingPaperCard.payerName}}
+  </div>
+  <div class="inner" style="width: 140px;">
+    {{rankingPaperCard.holderName}}
+  </div>
+  <div class="inner" style="width: 210px;">
+    {{rankingPaperCard.stateRole}}
+  </div>
+  <div class="inner" style="width: 210px;">
+    {{rankingPaperCard.cashData}}
+  </div>
+
+  <div class="buttonDiv" style="margin: 5px 0 0 -5px; width: 110px">
+
+  </div>
+  <div class="buttonDiv">
+    <button nz-button nzType="danger" (click)="refuseRank()">拒绝评级</button>
+  </div>
+  <div class="buttonDiv" style="margin: 5px -5px 0 0px; width: 215px">
+    <button nz-button nzType="default" (click)="startRank()">接受并修改票据评级</button>
+  </div>
+</div>
+
+<nz-modal [(nzVisible)]="modalVisible" nzTitle="请输入评级结果" (nzOnCancel)="cancel()" (nzOnOk)="acceptRank()">
+  <form nz-form [formGroup]="rankForm" class="login-form">
+    <nz-form-item>
+      <nz-form-control>
+        <nz-input-group>
+          <input type="number" nz-input formControlName="rankInfo" placeholder="请输入评级结果" />
+        </nz-input-group>
+        <nz-form-explain *ngIf="rankForm.get('rankInfo')?.dirty && rankForm.get('rankInfo')?.errors">
+          请输入评级结果
+        </nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+  </form>
+</nz-modal>

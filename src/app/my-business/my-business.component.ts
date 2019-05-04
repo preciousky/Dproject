@@ -89,7 +89,7 @@ export class MyBusinessComponent implements OnInit {
       .subscribe(data => {
         console.log('>>>>>>>>>>>>  received data >>>>>>>>>>>>>>>>>>>');
         console.log(data);
-        this.myCards = data['myCards'];
+        this.myCards = data['cards'];
         console.log('######################link finish############################');
       },
         error => {

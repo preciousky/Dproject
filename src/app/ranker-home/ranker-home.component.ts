@@ -15,7 +15,7 @@ export class RankerHomeComponent implements OnInit {
   }
 
   getRankingPapers(): void {
-    this.router.navigate(['/rankingPapers']);
+    this.router.navigate(['/rankingPapers', this.playerId]);
   }
   getApiDocs(): void {
     this.router.navigate(['/apiDocs']);

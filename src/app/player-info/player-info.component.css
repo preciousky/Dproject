@@ -1,0 +1,31 @@
+::ng-deep .ant-list {
+    width: 700px;
+}
+
+table {
+    
+    font-size: large;
+    font-weight: 900;
+}
+
+tr {
+    height: 60px;
+    border-bottom: #cacaca solid 1px;
+}
+
+td {
+    min-width: 350px;
+    text-align: center;
+}
+
+.firstCol {
+    font-size: larger;
+    color: #cacaca;
+}
+
+.sideBarContent {
+    color: white;
+    font-weight: 900;
+    font-size: x-large;
+    margin: 80px 0px 0px 40px;
+}

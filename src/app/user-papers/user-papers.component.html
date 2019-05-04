@@ -1,3 +1,6 @@
-<p>
-  user-papers works!
-</p>
+<div style="float: left; height:720px; width: 150px; background: #001529">
+  <div class="sideBarContent">
+    用户票据列表
+  </div>
+</div>
+<app-user-paper-card *ngFor="let userPaperCard of userPaperCards" [userPaperCard]="userPaperCard"></app-user-paper-card>

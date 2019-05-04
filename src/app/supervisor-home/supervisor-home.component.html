@@ -40,10 +40,13 @@
     <form nz-form [formGroup]="operationLogsForm" class="login-form" (ngSubmit)="operationLogs()">
       <nz-form-item>
         <nz-form-control>
-          <nz-select formControlName="role">
+          <nz-select formControlName="role" nzPlaceHolder="请选择参与方类别">
             <nz-option nzValue="1" nzLabel="评级方"></nz-option>
             <nz-option nzValue="2" nzLabel="准入方"></nz-option>
           </nz-select>
+          <nz-form-explain *ngIf="operationLogsForm.get('role')?.dirty && operationLogsForm.get('role')?.errors">
+              请选择参与方类别
+          </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
@@ -68,13 +71,16 @@
     <div class='pDiv'>
       <p>调取市场参与者资料</p>
     </div>
-    <form nz-form [formGroup]="operatorInfoForm" class="login-form" (ngSubmit)="playerInfo()">
+    <form nz-form [formGroup]="playerInfoResForm" class="login-form" (ngSubmit)="playerInfoRes()">
       <nz-form-item>
         <nz-form-control>
-          <nz-select formControlName="role">
+          <nz-select formControlName="role" nzPlaceHolder="请选择参与方类别">
             <nz-option nzValue="1" nzLabel="评级方"></nz-option>
             <nz-option nzValue="2" nzLabel="准入方"></nz-option>
           </nz-select>
+          <nz-form-explain *ngIf="playerInfoResForm.get('role')?.dirty && playerInfoResForm.get('role')?.errors">
+              请选择参与方类别
+          </nz-form-explain>
         </nz-form-control>
       </nz-form-item>
       <nz-form-item>
@@ -82,7 +88,7 @@
           <nz-input-group>
             <input nz-input formControlName="id_3" placeholder="请填写参与方ID" />
           </nz-input-group>
-          <nz-form-explain *ngIf="operatorInfoForm.get('id_3')?.dirty && operatorInfoForm.get('id_3')?.errors">
+          <nz-form-explain *ngIf="playerInfoResForm.get('id_3')?.dirty && playerInfoResForm.get('id_3')?.errors">
             请填写参与方ID
           </nz-form-explain>
         </nz-form-control>

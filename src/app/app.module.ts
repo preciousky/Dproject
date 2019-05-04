@@ -31,7 +31,10 @@ import { UserInfosComponent } from './user-infos/user-infos.component';
 import { UserPapersComponent } from './user-papers/user-papers.component';
 import { ApiDocsComponent } from './api-docs/api-docs.component';
 import { PlayerInfoResponceComponent } from './player-info-responce/player-info-responce.component';
-import { PaperLogsComponent } from './paper-logs/paper-logs.component'
+import { PaperLogsComponent } from './paper-logs/paper-logs.component';
+import { UserCardComponent } from './user-card/user-card.component';
+import { UserPaperCardComponent } from './user-paper-card/user-paper-card.component';
+import { RankingPaperCardComponent } from './ranking-paper-card/ranking-paper-card.component'
 
 registerLocaleData(en);
 
@@ -59,7 +62,10 @@ registerLocaleData(en);
     UserPapersComponent,
     ApiDocsComponent,
     PlayerInfoResponceComponent,
-    PaperLogsComponent
+    PaperLogsComponent,
+    UserCardComponent,
+    UserPaperCardComponent,
+    RankingPaperCardComponent
   ],
   imports: [
     BrowserModule,

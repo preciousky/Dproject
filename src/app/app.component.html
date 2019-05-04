@@ -1,11 +1,12 @@
 <div id="outline">
   <div id="top_bar">
     <a routerLink="/"><img style="margin-left: 15px;" src="../assets/pics/icon.png"></a>
+    
   </div>
   <nz-layout>
     <nz-header>
       <div style="float: left; color:white;margin: -9px; font-size: large;" *ngIf="roleCode!=0">{{platform}}</div>
-      <div style="float:right" *ngIf="!logInState">
+      <div style="float:right" *ngIf="roleCode==0">
         <ul class="topList" nz-menu [nzMode]="'horizontal'">
           <li nz-menu-item>
             <a routerLink="/logup" style="color: white;">注册</a>
@@ -15,7 +16,7 @@
           </li>
         </ul>
       </div>
-      <div style="float:right" *ngIf="!logInState">
+      <div style="float:right" *ngIf="roleCode==1">
         <ul class="topList" nz-menu [nzMode]="'horizontal'">
           <li nz-menu-item class="topIcon">
             <a class="topListA" style="color: white;" [routerLink]="['/userInfo', userId]">
@@ -23,13 +24,13 @@
             </a>
           </li>
           <li nz-menu-item class="topIcon">
-            <a class="topListA" style="color: white;">
+            <a class="topListA" style="color: white;" (click)='export()'>
               <i nz-icon nzType="export" nzTheme="outline" style="font-size: large;"></i>
             </a>
           </li>
         </ul>
       </div>
-      <div style="float:right" *ngIf="!logInState">
+      <div style="float:right" *ngIf="roleCode==1">
         <ul class="topList" nz-menu [nzMode]="'horizontal'">
           <li nz-submenu>
             <span title>
