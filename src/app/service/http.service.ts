@@ -7,7 +7,7 @@ import { antIconConsolePrefix } from '@ant-design/icons-angular';
 })
 
 export class HttpService {
-  serverIP='http://127.0.0.1:8080/';
+  serverIP='http://192.168.29.132:8080/';
   constructor(private http: HttpClient) { }
   
   postData(url: string, body: any){
@@ -17,7 +17,8 @@ export class HttpService {
     console.log('==============================================');
     console.log('=========Data response from server============');
 
-    return this.http.get('assets/mock/'+url+'.json');
+    //下行用于mock data的连接，向服务器连接时注释掉下行即可
+    //return this.http.get('assets/mock/'+url+'.json');
 
     const httpOptions = {
       headers: new HttpHeaders({

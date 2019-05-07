@@ -16,14 +16,14 @@
           </li>
         </ul>
       </div>
-      <div style="float:right" *ngIf="roleCode==1">
+      <div style="float:right">
         <ul class="topList" nz-menu [nzMode]="'horizontal'">
-          <li nz-menu-item class="topIcon">
+          <li nz-menu-item class="topIcon" *ngIf="roleCode==1">
             <a class="topListA" style="color: white;" [routerLink]="['/userInfo', userId]">
               <i nz-icon nzType="user" nzTheme="outline" style="font-size: large;"></i>
             </a>
           </li>
-          <li nz-menu-item class="topIcon">
+          <li nz-menu-item class="topIcon" *ngIf="roleCode!=0">
             <a class="topListA" style="color: white;" (click)='export()'>
               <i nz-icon nzType="export" nzTheme="outline" style="font-size: large;"></i>
             </a>

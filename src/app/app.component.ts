@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ShareService } from './service/share.service'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +21,8 @@ export class AppComponent {
    */
   roleCode: number = 0;
   constructor(
-    private shareService: ShareService) {
+    private shareService: ShareService,
+    private router: Router) {
     shareService.changeEmitted$.subscribe(
       body => {
         var jsonBody = JSON.parse(body);
@@ -51,6 +53,7 @@ export class AppComponent {
   }
   export(){
     this.roleCode = 0;
+    this.router.navigate(['/home']);
   }
 
 }
