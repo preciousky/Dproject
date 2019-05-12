@@ -3,7 +3,7 @@
 	"id": "test_id",
 	"logup_date": "9999-99-99",
 	"total_value":"99999",
-	"rank":"1",
+	"rankInfo":"1",
 	"account": "00000",
 	"tel": "010-12345678",
 	"email": "my@test.com",

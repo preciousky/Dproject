@@ -38,12 +38,13 @@ export interface PaperLog {
 })
 export class PaperLogsComponent implements OnInit {
   paperId: string;
-  paperInfo: PaperInfo;
-  paperLogs: PaperLog[];
+  paperInfo: PaperInfo = {};
+  paperLogs: PaperLog[] = [{}];
   constructor(private httpService: HttpService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.paperId = this.route.snapshot.queryParams["paperId"];
+    this.paperId = this.route.snapshot.params["paperId"];
+    console.log(this.paperId);
     var body = JSON.stringify({
       "paperId": this.paperId
     });
@@ -53,6 +54,7 @@ export class PaperLogsComponent implements OnInit {
         console.log(data);
         this.paperInfo = data;
         this.paperLogs = data['logs'];
+        console.log(this.paperLogs);
         console.log('######################link finish############################');
       },
         error => {

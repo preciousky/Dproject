@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpService } from '../service/http.service';
 import { NzNotificationService } from 'ng-zorro-antd';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-supervisor-home',
@@ -14,12 +14,15 @@ export class SupervisorHomeComponent implements OnInit {
   operationLogsForm: FormGroup;
   playerInfoResForm: FormGroup;
   notificationContent: string;
+  role: number;
+  superviorId:string;
 
   constructor(
     private fb: FormBuilder,
     private httpService: HttpService,
     private notification: NzNotificationService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.paperLogsForm = this.fb.group({
@@ -33,6 +36,10 @@ export class SupervisorHomeComponent implements OnInit {
     this.playerInfoResForm = this.fb.group({
       role: [null, [Validators.required]],
       id_3: [null, [Validators.required]]
+    });
+    this.route.queryParams.subscribe(queryParams => {
+      this.superviorId = queryParams.userId;
+      this.role = queryParams.role;
     });
   }
 
@@ -69,7 +76,12 @@ export class SupervisorHomeComponent implements OnInit {
       !this.playerInfoResForm.controls['role'].hasError('required') &&
       !this.playerInfoResForm.controls['id_3'].hasError('required')
     ) {
-      this.router.navigate(['playerInfoResponce', this.playerInfoResForm.value.id_3]);
+      this.router.navigate(['playerInfoResponce', this.playerInfoResForm.value.id_3],
+        {
+          queryParams: {
+            role: this.role
+          }
+        });
     }
 
   }

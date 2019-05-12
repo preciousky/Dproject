@@ -25,8 +25,13 @@ export class LoginComponent implements OnInit {
       this.loginForm.controls[i].markAsDirty();
       this.loginForm.controls[i].updateValueAndValidity();
     }
-    if (!this.loginForm.controls['username'].hasError('required') && !this.loginForm.controls['password'].hasError('required')) {
+    if (!this.loginForm.controls['username'].hasError('required') &&
+      (!this.loginForm.controls['accessorId'].hasError('required') || this.loginForm.value.role != 1) &&
+      !this.loginForm.controls['password'].hasError('required') &&
+      !this.loginForm.controls['role'].hasError('required')) {
       var body = JSON.stringify({
+        "role": this.loginForm.value.role,
+        "accessorId": this.loginForm.value.accessorId,
         "username": this.loginForm.value.username,
         "password": this.loginForm.value.password
       });
@@ -45,23 +50,41 @@ export class LoginComponent implements OnInit {
             }
             else if (data['roleCode'] == 2) {
               this.shareService.emitChange(emitBody);
-              this.router.navigate(['/rankerHome']);
+              this.router.navigate(['/rankerHome'],
+              {
+                queryParams: {
+                  role: '2',
+                  userId: data['userId']
+                }
+              });
             }
             else if (data['roleCode'] == 3) {
               this.shareService.emitChange(emitBody);
-              this.router.navigate(['/accessHome']);
+              this.router.navigate(['/accessHome'],
+              {
+                queryParams: {
+                  role: '3',
+                  userId: data['userId']
+                }
+              });
             }
             else if (data['roleCode'] == 4) {
               this.shareService.emitChange(emitBody);
-              this.router.navigate(['/supervisorHome']);
+              this.router.navigate(['/supervisorHome'],
+                {
+                  queryParams: {
+                    role: '4',
+                    userId: data['userId']
+                  }
+                });
             }
           }
           else if (data['code'] == 2) {
-            this.notificationContent = '用户不存在';
+            this.notificationContent = '登录失败';
             this.createBasicNotification();
           }
-          else if (data['code'] == 3) {
-            this.notificationContent = '密码错误';
+          else {
+            this.notificationContent = '未知错误（返回的code不是1or2）';
             this.createBasicNotification();
           }
           console.log('######################link finish############################');
@@ -74,6 +97,8 @@ export class LoginComponent implements OnInit {
   }
   ngOnInit(): void {
     this.loginForm = this.fb.group({
+      role: [null, [Validators.required]],
+      accessorId: [null, [Validators.required]],
       username: [null, [Validators.required]],
       password: [null, [Validators.required]]
     });

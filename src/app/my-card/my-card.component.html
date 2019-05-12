@@ -3,7 +3,9 @@
     {{myCard.paperName}}
   </div>
   <div class="inner" style="width: 60px;">
-    {{myCard.state}}
+    <div *ngIf = "myCard.state==2" style = 'color:yellow'>
+      申请评级中
+    </div>
   </div>
   <div class="inner" style="width: 250px;">
     {{myCard.paperId}}

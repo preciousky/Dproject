@@ -3,6 +3,27 @@
   <form nz-form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
     <nz-form-item>
       <nz-form-control>
+          <nz-select formControlName="role" nzPlaceHolder="请选择您的角色">
+            <nz-option nzValue="1" nzLabel="用户"></nz-option>
+            <nz-option nzValue="2" nzLabel="评级方"></nz-option>
+            <nz-option nzValue="3" nzLabel="准入方"></nz-option>
+            <nz-option nzValue="4" nzLabel="监管方"></nz-option>
+          </nz-select>
+        <nz-form-explain *ngIf="loginForm.get('role')?.dirty && loginForm.get('role')?.errors">
+          请选择您的角色
+        </nz-form-explain>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item *ngIf = "loginForm.value.role==1">
+        <nz-form-control>
+            <input type="text" nz-input formControlName="accessorId" placeholder="用户登录 请输入准入方ID"/>
+          <nz-form-explain *ngIf="loginForm.value.role==1 && loginForm.get('accessorId')?.dirty && loginForm.get('accessorId')?.errors">
+              请输入准入方ID
+          </nz-form-explain>
+        </nz-form-control>
+      </nz-form-item>
+    <nz-form-item>
+      <nz-form-control>
         <nz-input-group [nzPrefix]="prefixUser">
           <input type="text" nz-input formControlName="username" placeholder="用户名" />
         </nz-input-group>

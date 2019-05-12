@@ -24,6 +24,7 @@ export interface PlayerInfoRes {
 export class PlayerInfoResponceComponent implements OnInit {
   playerId: string;
   playerInfoRes: PlayerInfoRes;
+  role: number;
   constructor(private httpService: HttpService,
     private route: ActivatedRoute,
     private router: Router) {
@@ -32,9 +33,14 @@ export class PlayerInfoResponceComponent implements OnInit {
 
   ngOnInit() {
     this.playerId = this.route.snapshot.paramMap.get('playerId');
+    this.route.queryParams.subscribe(queryParams => {
+      this.role = queryParams.role;
+    });
+    
     console.log("I have got the player ID, it is "+ this.playerId)
     var body = JSON.stringify({
-      "playerId": this.playerId
+      "playerId": this.playerId,
+      "role": this.role
     });
     this.httpService.postData('supervisor/getPlayerInfoResById', body)
       .subscribe(data => {

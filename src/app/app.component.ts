@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'DLUTProject';
   userId: string;
   platform: string = '##未登录##';
+  accessorIdforUser: string;
   /**
    * roleCode == 
    * 0 未登录

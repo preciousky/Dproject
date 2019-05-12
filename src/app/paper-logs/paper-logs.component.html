@@ -8,7 +8,7 @@
     票据ID
   </div>
   <div class='div2 divAll'>
-{{paperInfo.paperId}}
+    {{paperInfo.paperId}}
   </div>
   <div class='div1 divAll'>
     票据名称
@@ -26,19 +26,19 @@
     评级信息
   </div>
   <div class='div2 divAll'>
-    {{paperInfo.rankInfo}}
+    {{paperInfo.rankInfo?paperInfo.rankInfo:'暂无信息'}}
   </div>
   <div class='div1 divAll'>
     评级方
   </div>
   <div class='div2 divAll'>
-    {{paperInfo.rankerName}}
+    {{paperInfo.rankerName?paperInfo.rankerName:'暂无信息'}}
   </div>
   <div class='div1 divAll'>
     评级时间
   </div>
   <div class='div2 divAll'>
-    {{paperInfo.rankDate}}
+    {{paperInfo.rankDate?paperInfo.rankDate:'暂无信息'}}
   </div>
 
 
@@ -94,10 +94,10 @@
 </div>
 
 <div style="margin:0px 22px; float:left; width:906px">
-  <nz-table #basicTable [nzData]="paperLogs" style=" margin: 20px 5px;" [nzPageSize]="6">
+  <nz-table #basicTable [nzData]="paperLogs" style=" margin: 20px 5px;" [nzPageSize]="3">
     <thead>
       <tr>
-        <th>变更时间</th>
+        <th style = "width:160px">变更时间</th>
         <th>成交金额</th>
         <th>持票人ID</th>
         <th>持票人</th>

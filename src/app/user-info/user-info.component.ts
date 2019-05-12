@@ -29,8 +29,8 @@ export class UserInfoComponent implements OnInit {
   ngOnInit() {
     this.userId = this.route.snapshot.paramMap.get('userId');
     var body = JSON.stringify({
-      "userId": this.userId,
-      "userName": "testName"
+      "userId": this.userId
+      //"userName": "testName"
     });
     this.httpService.postData('user/getMyInfo', body)
       .subscribe(data => {

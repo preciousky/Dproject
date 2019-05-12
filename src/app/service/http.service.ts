@@ -18,7 +18,7 @@ export class HttpService {
     console.log('=========Data response from server============');
 
     //下行用于mock data的连接，向服务器连接时注释掉下行即可
-    //return this.http.get('assets/mock/'+url+'.json');
+    // return this.http.get('assets/mock/'+url+'.json');
 
     const httpOptions = {
       headers: new HttpHeaders({

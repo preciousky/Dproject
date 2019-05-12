@@ -20,14 +20,17 @@ export class LogupComponent implements OnInit {
     private httpService: HttpService,
     private notification: NzNotificationService
   ) { }
-  
+
   logup(): void {
     for (const i in this.logupForm.controls) {
       this.logupForm.controls[i].markAsDirty();
       this.logupForm.controls[i].updateValueAndValidity();
     }
-    if (!this.logupForm.controls['username'].hasError('required') && !this.logupForm.controls['password'].hasError('required')) {
+    if (!this.logupForm.controls['username'].hasError('required') &&
+      !this.logupForm.controls['accessorId'].hasError('required') &&
+      !this.logupForm.controls['password'].hasError('required')) {
       var body = JSON.stringify({
+        "accessorId": this.logupForm.value.accessorId,
         "username": this.logupForm.value.username,
         "password": this.logupForm.value.password
       });
@@ -36,21 +39,9 @@ export class LogupComponent implements OnInit {
           console.log('>>>>>>>>>>>>  received data >>>>>>>>>>>>>>>>>>>');
           console.log(data);
           if (data['code'] == 1) {
-            if (data['roleCode'] == 1) {
-              this.notificationContent = '您成功注册成为平台用户';
-              this.createBasicNotification();
-              this.router.navigate(['/home']);
-            }
-            else if (data['roleCode'] == 2) {
-              this.notificationContent = '您成功注册成为平台评级方';
-              this.createBasicNotification();
-              this.router.navigate(['/home']);
-            }
-            else if (data['roleCode'] == 3) {
-              this.notificationContent = '您成功注册成为平台准入方';
-              this.createBasicNotification();
-              this.router.navigate(['/home']);
-            }
+            this.notificationContent = '您成功注册成为'+this.logupForm.value.accessorId+'平台用户';
+            this.createBasicNotification();
+            this.router.navigate(['/home']);
           }
           else if (data['code'] == 2) {
             this.notificationContent = '注册失败，请联系监管方';
@@ -86,6 +77,7 @@ export class LogupComponent implements OnInit {
 
   ngOnInit(): void {
     this.logupForm = this.fb.group({
+      accessorId: [null, [Validators.required]],
       username: [null, [Validators.required]],
       password: [null, [Validators.required]],
       checkPassword: [null, [Validators.required, this.confirmationValidator]]

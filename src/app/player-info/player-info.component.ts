@@ -5,12 +5,12 @@ import { ActivatedRoute } from '@angular/router';
 
 export interface PlayerInfo {
   role?: string;
-	logupDate?: string;
-	playerName?: string;
-	playerId?: string;
-	tel?: string;
-	email?: String;
-	address?: string;
+  logupDate?: string;
+  playerName?: string;
+  playerId?: string;
+  tel?: string;
+  email?: String;
+  address?: string;
 }
 
 @Component({
@@ -21,15 +21,20 @@ export interface PlayerInfo {
 export class PlayerInfoComponent implements OnInit {
   playerId: string;
   playerInfo: PlayerInfo;
+  role: number;
   constructor(private httpService: HttpService, private route: ActivatedRoute) {
     this.playerInfo = {};
   }
 
   ngOnInit() {
     this.playerId = this.route.snapshot.paramMap.get('playerId');
-    console.log("I have got the player ID, it is "+ this.playerId)
+    this.route.queryParams.subscribe(queryParams => {
+      this.role = queryParams.role;
+    });
+    console.log("I have got the player ID, it is " + this.playerId)
     var body = JSON.stringify({
-      "playerId": this.playerId
+      "playerId": this.playerId,
+      "role": this.role
     });
     this.httpService.postData('/getPlayerInfoById', body)
       .subscribe(data => {

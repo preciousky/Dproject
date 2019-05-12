@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../service/http.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-access-home',
@@ -10,9 +10,14 @@ import { Router } from '@angular/router';
 export class AccessHomeComponent implements OnInit {
   notificationContent: string;
   playerId: string = 'init-access-player-id';
-  constructor(private httpService: HttpService, private router: Router) { }
+  role: number;
+  constructor(private httpService: HttpService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(queryParams => {
+      this.playerId = queryParams.userId;
+      this.role = queryParams.role;
+    });
   }
 
   getUserInfos(): void {
@@ -22,7 +27,11 @@ export class AccessHomeComponent implements OnInit {
     this.router.navigate(['/apiDocs']);
   }
   getMyInfo(): void {
-    this.router.navigate(['/playerInfo', this.playerId]);
+    this.router.navigate(['/playerInfo', this.playerId], {
+      queryParams: {
+        role: this.role
+      }
+    });
   }
 
 }
